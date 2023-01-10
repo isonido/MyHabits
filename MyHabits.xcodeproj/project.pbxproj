@@ -13,6 +13,9 @@
 		FA508D68296E06E700ADB225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA508D66296E06E700ADB225 /* Main.storyboard */; };
 		FA508D6A296E06E800ADB225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA508D69296E06E800ADB225 /* Assets.xcassets */; };
 		FA508D6D296E06E800ADB225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA508D6B296E06E800ADB225 /* LaunchScreen.storyboard */; };
+		FA508D75296E18F100ADB225 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D74296E18F100ADB225 /* HabitsStore.swift */; };
+		FA508D77296E19E800ADB225 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D76296E19E800ADB225 /* HabitsViewController.swift */; };
+		FA508D79296E1A0E00ADB225 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D78296E1A0E00ADB225 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		FA508D69296E06E800ADB225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA508D6C296E06E800ADB225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA508D6E296E06E800ADB225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA508D74296E18F100ADB225 /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
+		FA508D76296E19E800ADB225 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		FA508D78296E1A0E00ADB225 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				FA508D60296E06E700ADB225 /* AppDelegate.swift */,
+				FA508D74296E18F100ADB225 /* HabitsStore.swift */,
 				FA508D62296E06E700ADB225 /* SceneDelegate.swift */,
 				FA508D64296E06E700ADB225 /* ViewController.swift */,
 				FA508D66296E06E700ADB225 /* Main.storyboard */,
 				FA508D69296E06E800ADB225 /* Assets.xcassets */,
 				FA508D6B296E06E800ADB225 /* LaunchScreen.storyboard */,
 				FA508D6E296E06E800ADB225 /* Info.plist */,
+				FA508D76296E19E800ADB225 /* HabitsViewController.swift */,
+				FA508D78296E1A0E00ADB225 /* InfoViewController.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -138,8 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA508D75296E18F100ADB225 /* HabitsStore.swift in Sources */,
 				FA508D65296E06E700ADB225 /* ViewController.swift in Sources */,
 				FA508D61296E06E700ADB225 /* AppDelegate.swift in Sources */,
+				FA508D77296E19E800ADB225 /* HabitsViewController.swift in Sources */,
+				FA508D79296E1A0E00ADB225 /* InfoViewController.swift in Sources */,
 				FA508D63296E06E700ADB225 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
