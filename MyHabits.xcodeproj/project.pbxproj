@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1ED7F3296EF0E600FD627F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ED7F2296EF0E600FD627F /* DataSource.swift */; };
 		FA508D61296E06E700ADB225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D60296E06E700ADB225 /* AppDelegate.swift */; };
 		FA508D63296E06E700ADB225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D62296E06E700ADB225 /* SceneDelegate.swift */; };
 		FA508D65296E06E700ADB225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D64296E06E700ADB225 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1ED7F2296EF0E600FD627F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FA508D5D296E06E700ADB225 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA508D60296E06E700ADB225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA508D62296E06E700ADB225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				FA508D6E296E06E800ADB225 /* Info.plist */,
 				FA508D76296E19E800ADB225 /* HabitsViewController.swift */,
 				FA508D78296E1A0E00ADB225 /* InfoViewController.swift */,
+				FA1ED7F2296EF0E600FD627F /* DataSource.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1ED7F3296EF0E600FD627F /* DataSource.swift in Sources */,
 				FA508D75296E18F100ADB225 /* HabitsStore.swift in Sources */,
 				FA508D65296E06E700ADB225 /* ViewController.swift in Sources */,
 				FA508D61296E06E700ADB225 /* AppDelegate.swift in Sources */,
