@@ -9,33 +9,30 @@ import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
     
-    private var habit = HabitsStore.shared.habits
+    private var store = HabitsStore.shared
     private let firstStateImg = UIImage(systemName: "checkmark.circle.fill")
     private let secondStateImg = UIImage(systemName: "circle")
+    var index = 0
     
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = textLabel
         titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
     
     private var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
-        descriptionLabel.text = textLabel
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
-        descriptionLabel.textColor = .black
+        descriptionLabel.textColor = .systemGray6
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         return descriptionLabel
     }()
     
     private var counterLabel: UILabel = {
         let counterLabel = UILabel()
-        counterLabel.text = textLabel
         counterLabel.font = UIFont.systemFont(ofSize: 12)
-        counterLabel.textColor = .black
+        counterLabel.textColor = .systemGray
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
         return counterLabel
     }()
@@ -55,7 +52,6 @@ class HabitCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(counterLabel)
         contentView.addSubview(statusBtn)
         setupCellView()
-        //setupCell()
     }
     
     func setupCellView() {
@@ -94,11 +90,13 @@ class HabitCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func buttonPressed(sender:UIButton){
-        if HabitsStore.shared.habits[IndexPath].isAlreadyTakenToday
+        if !store.habits[index].isAlreadyTakenToday{
+            statusBtn.setImage(firstStateImg, for: .normal)
+            store.track(store.habits[index])
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

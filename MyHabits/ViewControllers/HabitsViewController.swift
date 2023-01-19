@@ -23,7 +23,7 @@ class HabitsViewController: UIViewController {
         habitsCollectionView.dataSource = self
         habitsCollectionView.delegate = self
         habitsCollectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        //habitsCollectionView.register(<#T##viewClass: AnyClass?##AnyClass?#>, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        habitsCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         habitsCollectionView.translatesAutoresizingMaskIntoConstraints = false
         return habitsCollectionView
     }()
@@ -64,9 +64,17 @@ class HabitsViewController: UIViewController {
 
 extension HabitsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = habitsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        
+        let cell = habitsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HabitCollectionViewCell
+        cell.setupCell(habit: store.habits[indexPath.item])
+
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HeaderView
+        header.setPogress()
+        
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
