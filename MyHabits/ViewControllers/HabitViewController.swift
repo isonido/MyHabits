@@ -9,9 +9,9 @@ import UIKit
 
 class HabitViewController: UIViewController {
     
-    private var habit: Habit?
+    var habit: Habit?
     private var store = HabitsStore.shared
-    private var habitState: HabitState = .create
+    var habitState: HabitState = .create
     private var titleCurrent: String = "Бег"
     private var colorCurrent: UIColor = .systemOrange
     private var dateCurrent: Date = Date()

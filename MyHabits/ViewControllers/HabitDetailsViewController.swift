@@ -10,7 +10,7 @@ import UIKit
 class HabitDetailsViewController: UIViewController {
 
     private var cellID = "CellID"
-    private var habit: Habit!
+    var habit: Habit!
     private var store = HabitsStore.shared
     
     private lazy var daysList: UITableView = {
@@ -37,18 +37,22 @@ class HabitDetailsViewController: UIViewController {
     }
     
     private func setupViews() {
-        let rightButton = UIBarButtonItem(title: "Править", style: .done, target: self, action: #selector(editBtn))
+        let rightButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editBtn))
         navigationItem.rightBarButtonItem = rightButton
+        navigationItem.title = habit.name
     }
     
     @objc func editBtn(sender:UIButton){
-        
+        let vc = HabitViewController()
+        vc.habit = habit
+        vc.habitState = .edit
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        store.dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
