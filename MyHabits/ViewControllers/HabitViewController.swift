@@ -98,6 +98,7 @@ class HabitViewController: UIViewController {
             colorCurrent = habit.color
             dateCurrent = habit.date
         }
+        picker.delegate = self
         picker.selectedColor = colorCurrent
         setupViews()
         setupLayer()
@@ -117,6 +118,7 @@ class HabitViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftButton
         let rightButton = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(rightButtonClick))
         navigationItem.rightBarButtonItem = rightButton
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         view.addSubview(nameLabel)
         view.addSubview(nameHabitTf)
@@ -206,6 +208,6 @@ extension HabitViewController: UIColorPickerViewControllerDelegate {
     
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         colorCurrent = color
-        colorBtn.tintColor = colorCurrent
+        colorBtn.tintColor = color
     }
 }

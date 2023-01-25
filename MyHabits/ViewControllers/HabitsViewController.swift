@@ -16,10 +16,11 @@ class HabitsViewController: UIViewController {
     private lazy var habitsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 60)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 130)
         let habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        habitsCollectionView.contentInset = UIEdgeInsets(top: 22, left: 16, bottom: 6, right: 16)
         habitsCollectionView.dataSource = self
         habitsCollectionView.delegate = self
         habitsCollectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -43,23 +44,19 @@ class HabitsViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = .systemGray6
-        habitsCollectionView.backgroundColor = .systemGray
-        habitsCollectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        
+        habitsCollectionView.backgroundColor = .systemGray5
+
         NSLayoutConstraint.activate([
-            habitsCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            habitsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            habitsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            habitsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            habitsCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            habitsCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            habitsCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            habitsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
     func setupNavigationController() {
         navigationItem.title = "Сегодня"
         navigationController?.navigationBar.prefersLargeTitles = true
-        //navigationController?.navigationBar.isTranslucent = true
-        //navigationController?.navigationBar.backgroundColor = .green
-        
         
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonClick))
         navigationItem.rightBarButtonItem = button

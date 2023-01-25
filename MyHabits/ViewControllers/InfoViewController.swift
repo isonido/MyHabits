@@ -11,6 +11,7 @@ class InfoViewController: UIViewController {
 
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -24,7 +25,7 @@ class InfoViewController: UIViewController {
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = textLabel
-        titleLabel.font = UIFont.systemFont(ofSize: 18)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
@@ -36,8 +37,9 @@ class InfoViewController: UIViewController {
         textView.isScrollEnabled = false
         textView.sizeToFit()
         textView.textContainer.lineFragmentPadding = 0
-        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.font = UIFont.systemFont(ofSize: 17)
         textView.textColor = .black
+        textView.backgroundColor = .clear
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -51,7 +53,7 @@ class InfoViewController: UIViewController {
 
     private func setupViews() {
         navigationItem.title = "Информация"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         navigationController?.navigationBar.isHidden = false
         
         view.addSubview(scrollView)
@@ -63,8 +65,8 @@ class InfoViewController: UIViewController {
     private func setupLayout() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             textFieldContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -73,13 +75,12 @@ class InfoViewController: UIViewController {
             textFieldContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             textFieldContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: textFieldContainer.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: textFieldContainer.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: textFieldContainer.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: textFieldContainer.topAnchor, constant: 22),
+            titleLabel.leadingAnchor.constraint(equalTo: textFieldContainer.leadingAnchor, constant: 16),
             
-            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: textFieldContainer.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: textFieldContainer.trailingAnchor),
+            textView.topAnchor.constraint(equalTo: textFieldContainer.topAnchor, constant: 62),
+            textView.leadingAnchor.constraint(equalTo: textFieldContainer.leadingAnchor, constant: 16),
+            textView.trailingAnchor.constraint(equalTo: textFieldContainer.trailingAnchor, constant: -16),
             textView.bottomAnchor.constraint(equalTo: textFieldContainer.bottomAnchor)
         ])
     }

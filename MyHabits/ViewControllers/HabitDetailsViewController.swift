@@ -15,7 +15,7 @@ class HabitDetailsViewController: UIViewController {
     
     private lazy var daysList: UITableView = {
         let daysList = UITableView()
-        daysList.backgroundColor = .systemGray4
+        daysList.backgroundColor = .systemGray5
         daysList.dataSource = self
         daysList.delegate = self
         daysList.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
@@ -37,9 +37,11 @@ class HabitDetailsViewController: UIViewController {
     }
     
     private func setupViews() {
+        view.backgroundColor = .systemGray6
         let rightButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editBtn))
         navigationItem.rightBarButtonItem = rightButton
         navigationItem.title = habit.name
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     @objc func editBtn(sender:UIButton){
@@ -55,6 +57,10 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
         store.dates.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "АКТИВНОСТЬ"
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let date = store.dates[indexPath.row]
@@ -63,5 +69,9 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
             cell.accessoryType = .checkmark
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
