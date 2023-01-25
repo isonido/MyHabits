@@ -16,7 +16,7 @@ class HabitsViewController: UIViewController {
     private lazy var habitsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        //layout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
         layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 60)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 130)
         let habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -30,16 +30,23 @@ class HabitsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.addSubview(habitsCollectionView)
         setupView()
         setupNavigationController()
     }
     
     func setupView() {
         view.backgroundColor = .systemGray6
-        
-        
         habitsCollectionView.backgroundColor = .systemGray
+        habitsCollectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+        NSLayoutConstraint.activate([
+            habitsCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            habitsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            habitsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            habitsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func setupNavigationController() {

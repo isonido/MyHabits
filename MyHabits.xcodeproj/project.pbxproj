@@ -80,7 +80,6 @@
 				FA508D69296E06E800ADB225 /* Assets.xcassets */,
 				FA508D6B296E06E800ADB225 /* LaunchScreen.storyboard */,
 				FA508D6E296E06E800ADB225 /* Info.plist */,
-				FA6A27E229709E6C004BF304 /* HabitViewController.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -108,6 +107,7 @@
 			children = (
 				FA508D76296E19E800ADB225 /* HabitsViewController.swift */,
 				FA508D78296E1A0E00ADB225 /* InfoViewController.swift */,
+				FA6A27E229709E6C004BF304 /* HabitViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
