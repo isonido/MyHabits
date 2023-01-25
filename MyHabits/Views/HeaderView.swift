@@ -14,7 +14,7 @@ class HeaderView: UICollectionReusableView {
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Всё получится!"
-        titleLabel.font = UIFont.systemFont(ofSize: 12)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 13)
         titleLabel.textColor = .systemGray
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
@@ -22,7 +22,7 @@ class HeaderView: UICollectionReusableView {
     
     private var progressCountLabel: UILabel = {
         let descriptionLabel = UILabel()
-        descriptionLabel.font = UIFont.systemFont(ofSize: 12)
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 13)
         descriptionLabel.textColor = .systemGray
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         return descriptionLabel

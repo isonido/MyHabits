@@ -16,7 +16,8 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.numberOfLines = 2
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
@@ -24,14 +25,14 @@ class HabitCollectionViewCell: UICollectionViewCell {
     private var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
-        descriptionLabel.textColor = .systemGray6
+        descriptionLabel.textColor = .systemGray2
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         return descriptionLabel
     }()
     
     private var counterLabel: UILabel = {
         let counterLabel = UILabel()
-        counterLabel.font = UIFont.systemFont(ofSize: 12)
+        counterLabel.font = UIFont.boldSystemFont(ofSize: 13)
         counterLabel.textColor = .systemGray
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
         return counterLabel
@@ -65,7 +66,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            counterLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
+            counterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             counterLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
             statusBtn.widthAnchor.constraint(equalToConstant: 38),
@@ -79,7 +80,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
         titleLabel.text = habit.name
         titleLabel.textColor = habit.color
         descriptionLabel.text = habit.dateString
-        counterLabel.text = "Подряд: \(habit.trackDates.count)"
+        counterLabel.text = "Счётчик: \(habit.trackDates.count)"
         
         if habit.isAlreadyTakenToday{
             statusBtn.setImage(firstStateImg, for: .normal)
@@ -87,6 +88,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
             statusBtn.setImage(secondStateImg, for: .normal)
         }
         statusBtn.tintColor = habit.color
+        statusBtn.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 38), forImageIn: .normal)
     }
     
     @objc func buttonPressed(sender:UIButton){

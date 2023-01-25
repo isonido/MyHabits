@@ -29,9 +29,10 @@ class HabitViewController: UIViewController {
     private lazy var nameHabitTf: UITextField = {
         let nameHabitTf = UITextField()
         nameHabitTf.textAlignment = .left
-        nameHabitTf.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        nameHabitTf.textColor = .gray
+        nameHabitTf.font = UIFont.boldSystemFont(ofSize: 14)
+        nameHabitTf.textColor = .systemBlue
         nameHabitTf.placeholder = "Бегать по утрам, спать 8 часов и т.п."
+        nameHabitTf.tintColor = .systemGray
         nameHabitTf.delegate = self
         nameHabitTf.translatesAutoresizingMaskIntoConstraints = false
         return nameHabitTf
@@ -57,7 +58,7 @@ class HabitViewController: UIViewController {
     
     private var dateLabel: UILabel = {
         let dateLabel = UILabel()
-        dateLabel.text = colorHabit
+        dateLabel.text = timeHabit
         dateLabel.font = UIFont.systemFont(ofSize: 13)
         dateLabel.textColor = .black
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -113,6 +114,7 @@ class HabitViewController: UIViewController {
             deleteBtn.isHidden = false
             nameHabitTf.text = titleCurrent
         }
+        
         view.backgroundColor = .white
         let leftButton = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(leftButtonClick))
         navigationItem.leftBarButtonItem = leftButton
@@ -202,12 +204,8 @@ extension HabitViewController: UITextFieldDelegate {
 }
 
 extension HabitViewController: UIColorPickerViewControllerDelegate {
-    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        dismiss(animated: true)
-    }
-    
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         colorCurrent = color
-        colorBtn.tintColor = color
+        colorBtn.tintColor = colorCurrent
     }
 }
