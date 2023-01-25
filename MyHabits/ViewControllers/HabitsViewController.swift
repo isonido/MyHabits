@@ -16,7 +16,7 @@ class HabitsViewController: UIViewController {
     private lazy var habitsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        //layout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
         layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 60)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 130)
         let habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -34,6 +34,11 @@ class HabitsViewController: UIViewController {
         view.addSubview(habitsCollectionView)
         setupView()
         setupNavigationController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        habitsCollectionView.reloadData()
     }
     
     func setupView() {

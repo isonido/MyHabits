@@ -10,6 +10,7 @@
 		FA1ED7F3296EF0E600FD627F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ED7F2296EF0E600FD627F /* DataSource.swift */; };
 		FA27149E2979B9E5008DE383 /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27149D2979B9E5008DE383 /* HabitCollectionViewCell.swift */; };
 		FA2714A02979E66B008DE383 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27149F2979E66B008DE383 /* HeaderView.swift */; };
+		FA287CF2298180E000142829 /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA287CF1298180E000142829 /* HabitDetailsViewController.swift */; };
 		FA508D61296E06E700ADB225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D60296E06E700ADB225 /* AppDelegate.swift */; };
 		FA508D63296E06E700ADB225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D62296E06E700ADB225 /* SceneDelegate.swift */; };
 		FA508D65296E06E700ADB225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA508D64296E06E700ADB225 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		FA1ED7F2296EF0E600FD627F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FA27149D2979B9E5008DE383 /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA27149F2979E66B008DE383 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		FA287CF1298180E000142829 /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
 		FA508D5D296E06E700ADB225 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA508D60296E06E700ADB225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA508D62296E06E700ADB225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				FA508D76296E19E800ADB225 /* HabitsViewController.swift */,
 				FA508D78296E1A0E00ADB225 /* InfoViewController.swift */,
 				FA6A27E229709E6C004BF304 /* HabitViewController.swift */,
+				FA287CF1298180E000142829 /* HabitDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				FA508D75296E18F100ADB225 /* HabitsStore.swift in Sources */,
 				FA27149E2979B9E5008DE383 /* HabitCollectionViewCell.swift in Sources */,
 				FA508D65296E06E700ADB225 /* ViewController.swift in Sources */,
+				FA287CF2298180E000142829 /* HabitDetailsViewController.swift in Sources */,
 				FA6A27E329709E6C004BF304 /* HabitViewController.swift in Sources */,
 				FA2714A02979E66B008DE383 /* HeaderView.swift in Sources */,
 				FA508D61296E06E700ADB225 /* AppDelegate.swift in Sources */,

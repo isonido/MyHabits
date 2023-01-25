@@ -13,10 +13,9 @@ class HabitViewController: UIViewController {
     private var store = HabitsStore.shared
     private var habitState: HabitState = .create
     private var titleCurrent: String = "Бег"
-    private var colorCurrent: UIColor = .red
+    private var colorCurrent: UIColor = .systemOrange
     private var dateCurrent: Date = Date()
     private var picker = UIColorPickerViewController()
-    
     
     private var nameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -32,7 +31,6 @@ class HabitViewController: UIViewController {
         nameHabitTf.textAlignment = .left
         nameHabitTf.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         nameHabitTf.textColor = .gray
-        nameHabitTf.text = titleCurrent
         nameHabitTf.placeholder = "Бегать по утрам, спать 8 часов и т.п."
         nameHabitTf.delegate = self
         nameHabitTf.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +110,7 @@ class HabitViewController: UIViewController {
         } else {
             navigationItem.title = "Править"
             deleteBtn.isHidden = false
+            nameHabitTf.text = titleCurrent
         }
         view.backgroundColor = .white
         let leftButton = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(leftButtonClick))
@@ -207,5 +206,6 @@ extension HabitViewController: UIColorPickerViewControllerDelegate {
     
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         colorCurrent = color
+        colorBtn.tintColor = colorCurrent
     }
 }
