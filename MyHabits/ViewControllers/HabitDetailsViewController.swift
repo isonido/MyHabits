@@ -65,8 +65,8 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        let date = store.dates[indexPath.row]
-        cell.textLabel?.text = store.trackDateString(forIndex: indexPath.row)
+        let date = store.dates[store.dates.count - indexPath.row - 1]
+        cell.textLabel?.text = store.trackDateString(forIndex: store.dates.count - indexPath.row - 1)
         if store.habit(habit, isTrackedIn: date) {
             cell.accessoryType = .checkmark
         }

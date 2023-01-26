@@ -12,7 +12,7 @@ class HabitViewController: UIViewController {
     var habit: Habit?
     private var store = HabitsStore.shared
     var habitState: HabitState = .create
-    private var titleCurrent: String = "Бег"
+    private var titleCurrent: String = ""
     private var colorCurrent: UIColor = .systemOrange
     private var dateCurrent: Date = Date()
     private var picker = UIColorPickerViewController()
@@ -66,11 +66,20 @@ class HabitViewController: UIViewController {
     }()
     
     private var datePickerLabel: UILabel = {
-        let dateLabel = UILabel()
-        dateLabel.font = UIFont.systemFont(ofSize: 13)
-        dateLabel.textColor = .black
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        return dateLabel
+        let datePickerLabel = UILabel()
+        datePickerLabel.text = "Каждый день в "
+        datePickerLabel.font = UIFont.systemFont(ofSize: 17)
+        datePickerLabel.textColor = .black
+        datePickerLabel.translatesAutoresizingMaskIntoConstraints = false
+        return datePickerLabel
+    }()
+    
+    private var datePickerTime: UILabel = {
+        let datePickerTime = UILabel()
+        datePickerTime.font = UIFont.systemFont(ofSize: 17)
+        datePickerTime.textColor = .tintColor
+        datePickerTime.translatesAutoresizingMaskIntoConstraints = false
+        return datePickerTime
     }()
     
     private lazy var datePicker: UIDatePicker = {
@@ -101,6 +110,7 @@ class HabitViewController: UIViewController {
         }
         picker.delegate = self
         picker.selectedColor = colorCurrent
+        datePickerTime.text = datePicker.date.formatted(date: .omitted, time: .shortened)
         setupViews()
         setupLayer()
     }
@@ -128,6 +138,7 @@ class HabitViewController: UIViewController {
         view.addSubview(colorBtn)
         view.addSubview(dateLabel)
         view.addSubview(datePickerLabel)
+        view.addSubview(datePickerTime)
         view.addSubview(datePicker)
         view.addSubview(deleteBtn)
     }
@@ -152,6 +163,9 @@ class HabitViewController: UIViewController {
             
             datePickerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 7),
             datePickerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            datePickerTime.centerYAnchor.constraint(equalTo: datePickerLabel.centerYAnchor),
+            datePickerTime.leadingAnchor.constraint(equalTo: datePickerLabel.trailingAnchor),
             
             datePicker.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: 16),
             datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -195,7 +209,7 @@ class HabitViewController: UIViewController {
     
     @objc func setDate(sender:UIDatePicker){
         dateCurrent = sender.date
-        datePickerLabel.text = habit?.dateString
+        datePickerTime.text = sender.date.formatted(date: .omitted, time: .shortened)
     }
 }
 
