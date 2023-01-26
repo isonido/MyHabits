@@ -185,7 +185,14 @@ class HabitViewController: UIViewController {
         if habitState == .create {
             store.habits.append(Habit(name: titleCurrent, date: dateCurrent, color: colorCurrent))
         } else {
-            store.save()
+            let habitEdit = store.habits.first {
+                $0 == habit
+            }
+            if let habitEdit {
+                habitEdit.name = titleCurrent
+                habitEdit.date = dateCurrent
+                habitEdit.color = colorCurrent
+            }
         }
         dismiss(animated: true)
     }

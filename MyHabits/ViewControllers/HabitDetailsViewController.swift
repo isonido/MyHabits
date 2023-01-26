@@ -36,11 +36,14 @@ class HabitDetailsViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = habit.name
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemGray6
         let rightButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editBtn))
         navigationItem.rightBarButtonItem = rightButton
-        navigationItem.title = habit.name
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
