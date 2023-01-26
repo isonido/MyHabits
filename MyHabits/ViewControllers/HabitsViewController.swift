@@ -68,7 +68,6 @@ class HabitsViewController: UIViewController {
         navController.modalPresentationStyle = .fullScreen
         self.navigationController?.present(navController, animated: true, completion: nil)
     }
-
 }
 
 extension HabitsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
