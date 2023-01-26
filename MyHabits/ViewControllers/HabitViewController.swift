@@ -189,6 +189,8 @@ class HabitViewController: UIViewController {
             }
             self.dismiss(animated: true)
         })
+        
+        present(alert, animated: true)
     }
     
     @objc func setDate(sender:UIDatePicker){

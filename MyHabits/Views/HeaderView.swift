@@ -64,7 +64,7 @@ class HeaderView: UICollectionReusableView {
     }
     
     func setPogress() {
-        progressCountLabel.text = "\(store.todayProgress * 100)%"
+        progressCountLabel.text = String(format: "%.0f %%", store.todayProgress * 100)
         progressView.progress = store.todayProgress
     }
     

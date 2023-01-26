@@ -9,10 +9,10 @@ import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
     
+    private var habit: Habit!
     private var store = HabitsStore.shared
     private let firstStateImg = UIImage(systemName: "checkmark.circle.fill")
     private let secondStateImg = UIImage(systemName: "circle")
-    var index = 0
     
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -77,6 +77,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(habit: Habit) {
+        self.habit = habit
         titleLabel.text = habit.name
         titleLabel.textColor = habit.color
         descriptionLabel.text = habit.dateString
@@ -92,9 +93,10 @@ class HabitCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func buttonPressed(sender:UIButton){
-        if !store.habits[index].isAlreadyTakenToday{
+        if !habit.isAlreadyTakenToday{
             statusBtn.setImage(firstStateImg, for: .normal)
-            store.track(store.habits[index])
+            store.track(habit)
+            (superview as? UICollectionView)?.reloadData()
         }
     }
     

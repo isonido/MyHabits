@@ -45,10 +45,12 @@ class HabitDetailsViewController: UIViewController {
     }
     
     @objc func editBtn(sender:UIButton){
-        let vc = HabitViewController()
-        vc.habit = habit
-        vc.habitState = .edit
-        navigationController?.pushViewController(vc, animated: true)
+        let habitView = HabitViewController()
+        habitView.habit = habit
+        habitView.habitState = .edit
+        let navController = UINavigationController(rootViewController: habitView)
+        navController.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
 }
 
